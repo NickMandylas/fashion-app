@@ -6,9 +6,15 @@ interface SubslideProps {
   subtitle: string;
   description: string;
   last?: boolean;
+  onPress: () => void;
 }
 
-const Slide: React.FC<SubslideProps> = ({ subtitle, description, last }) => {
+const Slide: React.FC<SubslideProps> = ({
+  subtitle,
+  description,
+  last,
+  onPress,
+}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.subtitle}>{subtitle}</Text>
@@ -16,6 +22,7 @@ const Slide: React.FC<SubslideProps> = ({ subtitle, description, last }) => {
       <Button
         label={last ? "Let's get started" : "Next"}
         variant={last ? "primary" : "default"}
+        {...{ onPress }}
       />
     </View>
   );
