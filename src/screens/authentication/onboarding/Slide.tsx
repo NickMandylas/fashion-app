@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, Dimensions, StyleSheet, Image } from "react-native";
+import { View, Dimensions, StyleSheet, Image } from "react-native";
+import { Text } from "../../../components/Theme";
 
 interface SlideProps {
   title: string;
@@ -26,10 +27,7 @@ const Slide: React.FC<SlideProps> = ({ title, alignment, picture }) => {
         <Image source={picture} style={styles.picture} />
       </View>
       <View style={[styles.titleContainer, { transform }]}>
-        <Text
-          style={styles.title}
-          numberOfLines={1}
-          adjustsFontSizeToFit={true}>
+        <Text numberOfLines={1} adjustsFontSizeToFit={true} variant="hero">
           {title}
         </Text>
       </View>
@@ -58,12 +56,5 @@ const styles = StyleSheet.create({
   titleContainer: {
     height: 100,
     justifyContent: "center",
-  },
-  title: {
-    fontSize: 80,
-    lineHeight: 80,
-    fontFamily: "SFProText-Bold",
-    color: "white",
-    textAlign: "center",
   },
 });
