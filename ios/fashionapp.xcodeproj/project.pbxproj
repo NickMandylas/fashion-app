@@ -20,6 +20,9 @@
 		4E58CDB4792E8F4AA0DD3E3C /* libPods-fashionapp-fashionappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC94937C0F33C819EBA38C0 /* libPods-fashionapp-fashionappTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B545A2B2051081FAB5FC4AE2 /* libPods-fashionapp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B878D7CF15AA3BDDFD31CF /* libPods-fashionapp-tvOSTests.a */; };
+		07D22A1EBEF94ED2815C1359 /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5A18F513F62B4866BFCE30C4 /* SF-Pro-Text-Bold.otf */; };
+		0765FC3B4D8D43C787C30C14 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C25D626396434BC5BFBEEDE0 /* SF-Pro-Text-Regular.otf */; };
+		C85C78CF58A240FC8327A4F8 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE4F0266300C4F48B7416436 /* SF-Pro-Text-Semibold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F5CA30BFB14D4263FB33593B /* Pods-fashionapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionapp.debug.xcconfig"; path = "Target Support Files/Pods-fashionapp/Pods-fashionapp.debug.xcconfig"; sourceTree = "<group>"; };
+		5A18F513F62B4866BFCE30C4 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; name = "SF-Pro-Text-Bold.otf"; path = "../assets/fonts/SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C25D626396434BC5BFBEEDE0 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; name = "SF-Pro-Text-Regular.otf"; path = "../assets/fonts/SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BE4F0266300C4F48B7416436 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; name = "SF-Pro-Text-Semibold.otf"; path = "../assets/fonts/SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +186,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				6AC74678282B4E3B6260CB7D /* Pods */,
+				F74CC4D2391B40DA83411548 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -196,6 +203,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		F74CC4D2391B40DA83411548 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				5A18F513F62B4866BFCE30C4 /* SF-Pro-Text-Bold.otf */,
+				C25D626396434BC5BFBEEDE0 /* SF-Pro-Text-Regular.otf */,
+				BE4F0266300C4F48B7416436 /* SF-Pro-Text-Semibold.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +360,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				07D22A1EBEF94ED2815C1359 /* SF-Pro-Text-Bold.otf in Resources */,
+				0765FC3B4D8D43C787C30C14 /* SF-Pro-Text-Regular.otf in Resources */,
+				C85C78CF58A240FC8327A4F8 /* SF-Pro-Text-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
