@@ -1,14 +1,8 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { LoadAssets } from "./src/components";
-import { Onboarding } from "./src/Authentication";
-
-const fonts = {
-  "SFProText-Regular": require("./assets/fonts/SF-Pro-Text-Regular.otf"),
-  "SFProText-Semibold": require("./assets/fonts/SF-Pro-Text-Semibold.otf"),
-  "SFProText-Bold": require("./assets/fonts/SF-Pro-Text-Bold.otf"),
-};
+import { Onboarding } from "./src/screens/authentication";
+import { NavigationContainer } from "@react-navigation/native";
 
 const AuthenticationStack = createStackNavigator();
 const AuthenticationNavigator = () => {
@@ -21,8 +15,8 @@ const AuthenticationNavigator = () => {
 
 export default function App() {
   return (
-    <LoadAssets {...{ fonts }}>
+    <NavigationContainer>
       <AuthenticationNavigator />
-    </LoadAssets>
+    </NavigationContainer>
   );
 }
