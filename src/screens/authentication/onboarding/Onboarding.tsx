@@ -8,12 +8,12 @@ import Animated, {
 } from "react-native-reanimated";
 import { interpolateColor } from "react-native-redash";
 
-import Slide, { SLIDE_HEIGHT } from "./Slide";
+import Slide, { SLIDE_HEIGHT, BORDER_RADIUS } from "./Slide";
 import Subslide from "./Subslide";
+import Dot from "./Dot";
 
 interface OnboardingProps {}
 
-const BORDER_RADIUS = 75;
 const { width } = Dimensions.get("window");
 
 type SlideType = {
@@ -22,6 +22,7 @@ type SlideType = {
   alignment: "left" | "right";
   subtitle: string;
   description: string;
+  picture: number;
 };
 
 const slides: SlideType[] = [
@@ -32,6 +33,7 @@ const slides: SlideType[] = [
     subtitle: "Find Your Outfits",
     description:
       "Confused about your outfit? Don't worry! Find the best outfit here!",
+    picture: require("../../../../assets/1.png"),
   },
   {
     title: "Playful",
@@ -40,6 +42,7 @@ const slides: SlideType[] = [
     subtitle: "Hear it First, Wear it First",
     description:
       "Hating the clothes in your wardrobe? Explore hundres of outfit ideas",
+    picture: require("../../../../assets/1.png"),
   },
   {
     title: "Eccentric",
@@ -48,6 +51,7 @@ const slides: SlideType[] = [
     subtitle: "Your style, Your Way",
     description:
       "Create your individual & unique style and look amazing everyday",
+    picture: require("../../../../assets/1.png"),
   },
   {
     title: "Funky",
@@ -56,6 +60,7 @@ const slides: SlideType[] = [
     subtitle: "Look Good, Feel Good",
     description:
       "Discover the latest trends in fashion and explore your personality",
+    picture: require("../../../../assets/1.png"),
   },
 ];
 
@@ -87,6 +92,8 @@ const Onboarding: React.FC<OnboardingProps> = () => {
     transform: [{ translateX: -x.value }],
   }));
 
+  const currentIndex = useDerivedValue(() => x.value / width);
+
   const scrollRef = useRef<Animated.ScrollView>(null);
 
   return (
@@ -101,8 +108,8 @@ const Onboarding: React.FC<OnboardingProps> = () => {
           bounces={false}
           scrollEventThrottle={16}
           onScroll={onScroll}>
-          {slides.map(({ title, alignment }, index) => (
-            <Slide key={index} {...{ title, alignment }} />
+          {slides.map(({ title, alignment, picture }, index) => (
+            <Slide key={index} {...{ title, alignment, picture }} />
           ))}
         </Animated.ScrollView>
       </Animated.View>
@@ -110,29 +117,33 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         <Animated.View
           style={[{ ...StyleSheet.absoluteFillObject }, footerStyle]}
         />
-        <Animated.View
-          style={[
-            styles.footerContent,
-            {
-              width: width * slides.length,
-            },
-            footerContentStyle,
-          ]}>
-          {slides.map(({ subtitle, description }, index) => (
-            <Subslide
-              key={index}
-              onPress={() => {
-                if (scrollRef.current) {
-                  scrollRef.current
-                    .getNode()
-                    .scrollTo({ x: width * (index + 1), animated: true });
-                }
-              }}
-              last={index === slides.length - 1}
-              {...{ subtitle, description }}
-            />
-          ))}
-        </Animated.View>
+        <View style={[styles.footerContent]}>
+          <View style={styles.pagination}>
+            {slides.map((_, index) => (
+              <Dot key={index} {...{ index, currentIndex }} />
+            ))}
+          </View>
+          <Animated.View
+            style={[
+              { width: width * slides.length, flexDirection: "row" },
+              footerContentStyle,
+            ]}>
+            {slides.map(({ subtitle, description }, index) => (
+              <Subslide
+                key={index}
+                onPress={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current
+                      .getNode()
+                      .scrollTo({ x: width * (index + 1), animated: true });
+                  }
+                }}
+                last={index === slides.length - 1}
+                {...{ subtitle, description }}
+              />
+            ))}
+          </Animated.View>
+        </View>
       </View>
     </View>
   );
@@ -155,8 +166,15 @@ const styles = StyleSheet.create({
   },
   footerContent: {
     flex: 1,
-    flexDirection: "row",
+    paddingTop: BORDER_RADIUS / 2,
     backgroundColor: "white",
     borderTopLeftRadius: BORDER_RADIUS,
+  },
+  pagination: {
+    ...StyleSheet.absoluteFillObject,
+    height: BORDER_RADIUS,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
   },
 });
